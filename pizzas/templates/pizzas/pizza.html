@@ -5,12 +5,12 @@
 
 <center><h2 style="font-size:160%;border:2px solid black;"> Pizza : {{ pizza }} </h2></center>
 
-<b><p>Toppings:</p></b> 
+<b><p style="font-size: 120%;">Toppings:</p></b> 
 <ul> 
      
      {% for t in toppings %} 
 
-     <li> {{ t.topping_name }}</li>     
+     <li style="font-size:110%;font-style:Copperplate;"> {{ t.topping_name }}</li>     
 
      {% empty %}
      <li> No toppings for this pizza have been added yet.</li>
@@ -18,19 +18,28 @@
      
 </ul>
 
-<center><img src="{% static "pizzas/pizza.jpg" %}" width="700" height="700"" /></center>
+{%if pizza.id == 1%}
+<center><img src="{% static "pizzas/hawaiian.jpg" %}" width="700" height="700"" /></center>
+{% elif pizza.id == 2%}
+<center><img src="{% static "pizzas/meatlovers.jpg" %}" width="700" height="700"" /></center>
+{% elif pizza.id == 3%}
+<center><img src="{% static "pizzas/pepperoni.jpeg" %}" width="700" height="700"" /></center>
+{% elif pizza.id == 4%}
+<center><img src="{% static "pizzas/cheese.jpg" %}" width="700" height="700"" /></center>
+{% elif pizza.id == 5%}
+<center><img src="{% static "pizzas/supreme.jpg" %}" width="700" height="700"" /></center>
+{% endif %}
 
-<br><b><p style="color:darkblue;">Comments:</p></b>
+<br><center><b><p style="color:orange;font-size: 120%;border:2px solid black">Comments:</p></b></center>
 <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
-
 
 <ul>
      {% for c in comments %}
 
-     <li> {{ c.comment }}</li>     
+     <li style="font-size:110%;font-style:Copperplate;"> {{ c.comment }}</li>     
 
      {% empty %}
-     <li> No comments for this pizza have been added yet.</li>
+     <li style="font-size:110%;font-style:Copperplate;"> No comments for this pizza have been added yet.</li>
      {% endfor %}
 
 </ul>

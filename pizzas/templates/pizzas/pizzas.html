@@ -1,13 +1,15 @@
 {% extends "pizzas/base.html" %}
+{% load static %}
 
 {% block content %}
 
 <center><b><p style="font-size:160%;border:2px solid black;"> Pizzas </p></center></b>
+<img align="left" src="{% static "pizzas/pizza.jpg" %}" width="600" height="500"" />
 
 <p> 
      {% for pizza in all_pizzas %} 
-
-     <li  style="font-size:120%;font-style: Verdana;">
+     
+     <li style="font-size:120%;font-style: Verdana;">
           <a href="{% url 'pizzas:pizza' pizza.id %}"> {{ pizza }}</a>
      </li> <br>    
 
@@ -16,6 +18,8 @@
      {% endfor %}
 
 </p>
+
+
 
 {% endblock content %}
 
